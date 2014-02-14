@@ -58,6 +58,10 @@ class ArticleController extends AbstractActionController
 
     public function ajouterAction()
     {
+        if(!$this->zfcUserAuthentication()->hasIdentity()) {
+            return $this->redirect()->toRoute("zfcuser/login");
+        }
+        
         $form = new \Blog\Form\ArticleForm();
         
         if($this->request->isPost()) {
