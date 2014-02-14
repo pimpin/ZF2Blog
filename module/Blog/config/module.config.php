@@ -2,7 +2,8 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Blog\Controller\Article' => 'Blog\Controller\ArticleController'
+            'Blog\Controller\Article' => 'Blog\Controller\ArticleController',
+            'Blog\Controller\Categorie' => 'Blog\Controller\CategorieController',
         ),
     ),
     
