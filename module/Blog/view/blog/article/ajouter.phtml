@@ -1,0 +1,37 @@
+<h2>Ajouter un article</h2>
+
+<?php // echo $this->form($form); ?>
+
+<?php echo $this->form()->openTag($form); ?>
+    <div class="form-group<?php if($form->get("titre")->getMessages()) echo " has-error"?>">
+        <?php echo $this->formLabel($form->get("titre")); ?>
+        <?php echo $this->formElement($form->get("titre")->setAttribute("class", "form-control")); ?>
+        <?php /* @var $form \Blog\Form\ArticleForm */ ?>
+        <?php if($form->get("titre")->getMessages()) : ?>
+            <span class="help-block">
+                <?php echo $this->formElementErrors($form->get("titre")); ?>
+            </span>
+        <?php endif; ?>
+    </div>
+    <div class="form-group<?php if($form->get("photo")->getMessages()) echo " has-error"?>">
+        <?php echo $this->formLabel($form->get("photo")); ?>
+        <?php echo $this->formElement($form->get("photo")); ?>
+        <?php /* @var $form \Blog\Form\ArticleForm */ ?>
+        <?php if($form->get("photo")->getMessages()) : ?>
+            <span class="help-block">
+                <?php echo $this->formElementErrors($form->get("photo")); ?>
+            </span>
+        <?php endif; ?>
+    </div>
+    <div class="form-group<?php if($form->get("contenu")->getMessages()) echo " has-error"?>">
+        <?php echo $this->formLabel($form->get("contenu")); ?>
+        <?php echo $this->formElement($form->get("contenu")->setAttribute("class", "form-control")); ?>
+        <?php /* @var $form \Blog\Form\ArticleForm */ ?>
+        <?php if($form->get("contenu")->getMessages()) : ?>
+            <span class="help-block">
+                <?php echo $this->formElementErrors($form->get("contenu")); ?>
+            </span>
+        <?php endif; ?>
+    </div>
+    <button class="btn btn-primary">Ajouter un article</button>
+<?php echo $this->form()->closeTag(); ?>
