@@ -59,8 +59,6 @@ class ArticleController extends AbstractActionController
     public function ajouterAction()
     {
         $form = new \Blog\Form\ArticleForm();
-        // TODO remplir une issue à propos de FileInput sur GitHub
-//        $form->getInputFilter()->remove("photo");
         
         if($this->request->isPost()) {
             $form->setInputFilter(new \Blog\InputFilter\ArticleInputFilter());
