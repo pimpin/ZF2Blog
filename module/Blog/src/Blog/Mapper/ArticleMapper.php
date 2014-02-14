@@ -48,6 +48,35 @@ class ArticleMapper {
         return $article;
     }
     
+    public function getByIdWithAuthor($id) {
+        
+        $adapter = $this->gateway->getAdapter();
+        /* @var $adapter \Zend\Db\Adapter\Adapter  */
+                
+        $sql = new \Zend\Db\Sql\Sql($adapter);
+        $select = $sql->select()->columns(array('*'))
+                                ->from('article')
+                                ->join('user', 'user_id = membre_id')
+                                ->where(array("id" => $id));
+
+        $selectString = $sql->getSqlStringForSqlObject($select);
+        
+        $resultSet = $adapter->query($selectString, \Zend\Db\Adapter\Adapter::QUERY_MODE_EXECUTE);
+        
+        $articleAssoc = (array) $resultSet->current();
+        
+        $article = new Article();
+        $auteur = new \ZfcUser\Entity\User();
+        
+        $hydrator = new ClassMethods();
+        $hydrator->hydrate($articleAssoc, $article);
+        $hydrator->hydrate($articleAssoc, $auteur);
+        
+        $article->setAuteur($auteur);
+        
+        return $article;
+    }
+    
     public function add(Article $article) {
         
         $hydrator = new ClassMethods();

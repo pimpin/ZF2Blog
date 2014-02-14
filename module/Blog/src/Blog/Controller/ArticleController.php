@@ -45,7 +45,7 @@ class ArticleController extends AbstractActionController
         
         // Interroge le Model pour récupérer notre article
         $mapper = $this->getMapper();
-        $article = $mapper->getById($id);
+        $article = $mapper->getByIdWithAuthor($id);
         
         // TODO si pas d'article
         // au choix rediriger ou erreur 404
@@ -61,6 +61,7 @@ class ArticleController extends AbstractActionController
         if(!$this->zfcUserAuthentication()->hasIdentity()) {
             return $this->redirect()->toRoute("zfcuser/login");
         }
+        
         
         $form = new \Blog\Form\ArticleForm();
         
@@ -79,8 +80,9 @@ class ArticleController extends AbstractActionController
                 
                 $hydrator = new \Zend\Stdlib\Hydrator\ClassMethods();
                 $article = new \Blog\Entity\Article();
-                $article->setMembreId(1); // TODO remplacer par l'id
-                                          // de l'user connecté
+                
+                $idUserConnected = $this->zfcUserAuthentication()->getIdentity()->getId();
+                $article->setMembreId($idUserConnected);
                 
                 $data = $form->getData();
                 $newImgName = array_shift(array_reverse(explode("/", $data["photo"]["tmp_name"])));

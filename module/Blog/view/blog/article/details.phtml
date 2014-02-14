@@ -5,6 +5,10 @@
 </p>
 
 <p>
+    Email de l'auteur : <?php echo $this->escapeHTML($article->getAuteur()->getEmail()); ?>
+</p>
+
+<p>
     <a href="<?php echo $this->url('home'); ?>">
         Retour à la liste des articles
     </a>

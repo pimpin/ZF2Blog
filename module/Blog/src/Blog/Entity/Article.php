@@ -10,6 +10,12 @@ class Article {
     protected $photo;
     protected $membreId;
     
+    /**
+     *
+     * @var \ZfcUser\Entity\User
+     */
+    private $auteur;
+    
     public function getId() {
         return $this->id;
     }
@@ -63,5 +69,16 @@ class Article {
         $this->membreId = (int) $membreId;
         return $this;
     }
+    
+    public function getAuteur() {
+        return $this->auteur;
+    }
+
+    public function setAuteur(\ZfcUser\Entity\User $auteur) {
+        $this->auteur = $auteur;
+        return $this;
+    }
+
+
 
 }
