@@ -13,6 +13,11 @@ class CategorieController extends AbstractActionController
         return new ViewModel();
     }
 
+    public function ajouterAction()
+    {
+        return new ViewModel();
+    }
+
 
 }
 
