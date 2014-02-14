@@ -41,6 +41,16 @@ return array(
                     ),
                 ),
             ),
+            'categorie_ajouter' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/categorie/ajouter',
+                    'defaults' => array(
+                        'controller' => 'Blog\Controller\Categorie',
+                        'action'     => 'ajouter',
+                    ),
+                ),
+            ),
         ),
     ),
     
