@@ -1,8 +1,5 @@
 language: php
 
-script:
-- 
-
 deploy:
   provider: heroku
   api_key: HEROKU-PM-API-KEY
