@@ -1,10 +1,11 @@
 language: php
-
 script:
 - phpunit tests/
-
 deploy:
   provider: heroku
-  api_key: HEROKU-PM-API-KEY
+  api_key:
+    secure: iY2FDHaqdrRfr/7KanvwuAE8yK90uNwyuj1xt5xXfvCbuEc4L1Y1c71+47kkyXnsBUM4ABoROwbTO/V+vRZOeoofWsqGgswD4FNmINqM/gmhZpdgRKSevLcUfCQo08qdVbi8TuHay0y+C5BeG6AyFMt7+zTClr7X4r1HqkT7mvY=
+  app: zf2blog
   on:
+    repo: pimpin/ZF2Blog
     all_branches: true
