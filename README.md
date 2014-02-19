@@ -1,6 +1,11 @@
 ZendSkeletonApplication
 =======================
 
+Build status
+------------
+
+[![Build Status](https://secure.travis-ci.org/pimpin/ZF2Blog.png)](http://travis-ci.org/pimpin/ZF2Blog)
+
 Introduction
 ------------
 This is a simple, skeleton application using the ZF2 MVC layer and module
